@@ -1,19 +1,13 @@
 class Solution {
     public int[] sortArrayByParity(int[] nums) {
-        int i =0;
-        int j = nums.length-1;
-        
-        while(i<j){
-            if(nums[i]%2==0) i++;
-            else if(nums[j]%2==1) j--;
-            else swap(nums,i++,j--);
+        int left=0,right=nums.length-1;           //using two pointer approach
+        while(left<right){
+            while(left<right &&nums[left]%2==0) left++;
+            while(left<right && nums[right]%2==1) right--;
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
         }
         return nums;
-    }
-        private void swap(int[] nums,int i,int j){
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-        
     }
 }
