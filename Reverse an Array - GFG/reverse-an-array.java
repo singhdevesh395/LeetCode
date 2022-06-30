@@ -5,30 +5,27 @@ import java.lang.*;
 import java.io.*;
 
 class GFG {
-	public static void main (String[] args) {
-		//code
-	   Scanner sc = new Scanner(System.in);
-	   int n = sc.nextInt();
-	   for(int i =1 ; i<=n ; i++)
- {
-     int t=sc.nextInt();
-     
-     int arr [] = new int[t];
-     
-     for (int initial=0 ; initial <t; initial++)
-     {
-        arr[initial]= sc.nextInt();
-       
-     }
-      for(int last =arr.length -1 ; last >=0;last--)
-     {
-         System.out.print(arr[last]+ " ");
-         
-     }
-     
-      System.out.println("");
- }
-		
-		
+public static void main (String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int t = sc.nextInt();
+	    for(int j=0;j<t;j++){
+    	    int n = sc.nextInt();
+    	    int arr[] = new int[n];
+    	    for(int i=0;i<n;i++){
+    	        arr[i] = sc.nextInt();
+    	    }
+    	    int s=0,e=n-1;
+    	    while(s<e){
+    	        int temp = arr[s];
+    	        arr[s] = arr[e];
+    	        arr[e] = temp;
+    	        s++;
+    	        e--;
+    	    }
+    	    for(int i=0;i<n;i++){
+    	       System.out.print(arr[i]+" ");
+    	    }
+    	     System.out.println();
+	    }
 	}
 }
